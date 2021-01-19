@@ -1,0 +1,213 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{multicol,lipsum}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[right = 2cm, left=2cm, top=2.5cm, bottom=3.5cm]{geometry}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Thiago Duque Saber de Lima}
+\chead{TITULO}
+\rhead{\today}
+\rfoot{\thepage}
+\setlength{\headheight}{52pt}
+
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{%
+	\parbox{\textwidth}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}\vskip-4pt}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+\lstset{frame=lrb,xleftmargin=\fboxsep,xrightmargin=-\fboxsep}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+\begin{document}
+%\maketitle
+\lstset{language=Matlab,%
+	%basicstyle=\color{red},
+	breaklines=true,%
+	morekeywords={matlab2tikz},
+	keywordstyle=\color{blue},%
+	morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+	identifierstyle=\color{black},%
+	stringstyle=\color{mylilas},
+	commentstyle=\color{mygreen},%
+	showstringspaces=false,%without this there will be a symbol in the places where there is a space
+	numbers=left,%
+	numberstyle={\tiny \color{black}},% size of the numbers
+	numbersep=9pt, % this defines how far the numbers are from the text
+	emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+	%emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+\begin{titlepage}
+	\begin{center}
+	
+	\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.5\linewidth]{ufjf.png}
+	\end{figure}
+
+		\Huge{Universidade Federal de Juiz de Fora}\\
+		\large{Faculdade de Engenharia}\\ 
+		\large{Graduação em Engenharia Elétrica }\\ 
+		\vspace{15pt}
+        \vspace{95pt}
+        \textbf{\LARGE{TITULO }}\\
+		%\title{{\large{Título}}}
+		\vspace{3,5cm}
+	\end{center}
+	
+	\begin{flushleft}
+		\begin{tabbing}
+
+			Aluno: Thiago Duque Saber de Lima\\
+				
+			%Professor : 
+			
+			%Professor co-orientador: \\
+	\end{tabbing}
+ \end{flushleft}
+	\vspace{1cm}
+	
+	\begin{center}
+		\vspace{\fill}
+			 Juiz de Fora\\
+		 \today
+			\end{center}
+\end{titlepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% % % % % % % % %FOLHA DE ROSTO % % % % % % % % % %
+
+\begin{titlepage}
+	\begin{center}
+	
+	\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.5\linewidth]{ufjf.png}
+	\end{figure}
+
+		\Huge{Universidade Federal de Juiz de Fora}\\
+		\large{Faculdade de Engenharia}\\ 
+		\large{Graduação em Engenharia Elétrica}\\ 
+\vspace{15pt}
+        
+        \vspace{85pt}
+        
+		\textbf{\LARGE{TITULO}}
+		\title{\large{Título}}
+	%	\large{Modelo\\
+     %   		Validação do modelo clássico}
+			
+	\end{center}
+\vspace{1,5cm}
+	
+	\begin{flushright}
+
+   \begin{list}{}{
+      \setlength{\leftmargin}{4.5cm}
+      \setlength{\rightmargin}{0cm}
+      \setlength{\labelwidth}{0pt}
+      \setlength{\labelsep}{\leftmargin}}
+
+      \item Relatório referente ao "REFERENCIA" da aula de "DISCIPLINA" do Curso de Engenharia Elétrica da Universidade Federal de Juiz de Fora.
+
+      \begin{list}{}{
+      \setlength{\leftmargin}{0cm}
+      \setlength{\rightmargin}{0cm}
+      \setlength{\labelwidth}{0pt}
+      \setlength{\labelsep}{\leftmargin}}
+
+			\item Alunos: Thiago Duque Saber de Lima \\ \vspace{15pt}
+            \item Professor: NOME DO PROFESSOR \
+      		%\item Professor co-orientador: \
+
+      \end{list}
+   \end{list}
+\end{flushright}
+\vspace{1cm}
+\begin{center}
+		\vspace{\fill}
+		 Juiz de Fora\\
+		 \today
+			\end{center}
+\end{titlepage}
+\newpage
+% % % % % % % % % % % % % % % % % % % % % % % % % %
+\newpage
+\tableofcontents
+\thispagestyle{empty}
+
+\newpage
+\pagenumbering{arabic}
+% % % % % % % % % % % % % % % % % % % % % % % % % % %
+\listoffigures
+\newpage
+\listoftables
+\newpage
+
+\section{Introdução}
+\newpage
+\section{Exemplo Lslisting}
+
+\begin{lstlisting}[label=Multiprocessamento,caption=Multiprocessamento]
+#include <Arduino.h>
+#define ledVermelho 22
+#define ledVerde 23
+int a=10;
+
+void loop2(void*z){
+Serial.printf("\nloop2() em core: %d \n", xPortGetCoreID());
+while (true){
+Serial.println(a);
+digitalWrite(ledVerde, !digitalRead(ledVerde));
+delay(1000);
+}
+}
+
+void setup(){
+Serial.begin(115200);
+pinMode(ledVermelho, OUTPUT);
+pinMode(ledVerde, OUTPUT);
+Serial.printf("\nsetup() em core: %d", xPortGetCoreID());
+xTaskCreatePinnedToCore(loop2, "loop2", 8192, NULL, 1
+, NULL, 0);
+delay(1);
+}
+
+void loop(){
+digitalWrite(ledVermelho, !digitalRead(ledVermelho));
+delay(1000);
+a++;
+for i in range
+if
+}
+\end{lstlisting}
+
+\newpage
+
+
+
+%\addcontentsline{toc}{section}{Bibliografia}
+%\section*{Bibliografia}
+%\footnotesize{
+%
+%\noindent AGUIRRE, L. A. Introdução à Identificação de Sistemas, Técnicas Lineares e Não lineares Aplicadas a Sistemas Reais. Belo Horizonte, Brasil, EDUFMG. 2004.\\
+
+%}
+%\newpage
+%\addcontentsline{toc}{section}{Anexo}
+%\section*{Anexo}
+\end{document}
+
+
