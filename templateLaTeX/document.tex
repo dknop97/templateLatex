@@ -8,14 +8,15 @@
 \usepackage{multicol,lipsum}
 \usepackage{float}
 \usepackage{hyperref}
-\usepackage[right = 2cm, left=2cm, top=2.5cm, bottom=3.5cm]{geometry}
+\usepackage[right = 2cm, left=2cm, top=2cm, bottom=3.5cm]{geometry}
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{Thiago Duque Saber de Lima}
-\chead{TITULO}
+\lhead{MATÉRIA}
+\chead{TÍTULO}
 \rhead{\today}
+\lfoot{NOME}
 \rfoot{\thepage}
 \setlength{\headheight}{52pt}
 
@@ -31,9 +32,12 @@
 \definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
 \definecolor{mylilas}{RGB}{170,55,241}
 
+\renewcommand{\lstlistingname}{Código}
+\renewcommand{\lstlistlistingname}{Lista de Códigos}
+
 \begin{document}
 %\maketitle
-\lstset{language=Matlab,%
+\lstset{language=C++,%
 	%basicstyle=\color{red},
 	breaklines=true,%
 	morekeywords={matlab2tikz},
@@ -54,7 +58,7 @@
 	
 	\begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.5\linewidth]{ufjf.png}
+	\includegraphics[width=0.5\linewidth]{figuras/ufjf.png}
 	\end{figure}
 
 		\Huge{Universidade Federal de Juiz de Fora}\\
@@ -62,7 +66,7 @@
 		\large{Graduação em Engenharia Elétrica }\\ 
 		\vspace{15pt}
         \vspace{95pt}
-        \textbf{\LARGE{TITULO }}\\
+        \textbf{\LARGE{TÍTULO }}\\
 		%\title{{\large{Título}}}
 		\vspace{3,5cm}
 	\end{center}
@@ -70,7 +74,7 @@
 	\begin{flushleft}
 		\begin{tabbing}
 
-			Aluno: Thiago Duque Saber de Lima\\
+			Aluno: NOME DO ALUNO\\
 				
 			%Professor : 
 			
@@ -94,7 +98,7 @@
 	
 	\begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.5\linewidth]{ufjf.png}
+	\includegraphics[width=0.5\linewidth]{figuras/ufjf.png}
 	\end{figure}
 
 		\Huge{Universidade Federal de Juiz de Fora}\\
@@ -104,7 +108,7 @@
         
         \vspace{85pt}
         
-		\textbf{\LARGE{TITULO}}
+		\textbf{\LARGE{TÍTULO}}
 		\title{\large{Título}}
 	%	\large{Modelo\\
      %   		Validação do modelo clássico}
@@ -119,16 +123,15 @@
       \setlength{\rightmargin}{0cm}
       \setlength{\labelwidth}{0pt}
       \setlength{\labelsep}{\leftmargin}}
-
-      \item Relatório referente ao "REFERENCIA" da aula de "DISCIPLINA" do Curso de Engenharia Elétrica da Universidade Federal de Juiz de Fora.
-
+      
+      \item Relatório referente à "REFERÊNCIA" da disciplina de "DISCIPLINA"do curso de Engenharia Elétrica, Universidade Federal de Juiz de Fora.
       \begin{list}{}{
       \setlength{\leftmargin}{0cm}
       \setlength{\rightmargin}{0cm}
       \setlength{\labelwidth}{0pt}
       \setlength{\labelsep}{\leftmargin}}
 
-			\item Alunos: Thiago Duque Saber de Lima \\ \vspace{15pt}
+			\item Aluno: NOME DO ALUNO \\ \vspace{15pt}
             \item Professor: NOME DO PROFESSOR \
       		%\item Professor co-orientador: \
 
@@ -155,6 +158,8 @@
 \newpage
 \listoftables
 \newpage
+\lstlistoflistings
+\newpage
 
 \section{Introdução}
 \newpage
@@ -167,30 +172,27 @@
 int a=10;
 
 void loop2(void*z){
-Serial.printf("\nloop2() em core: %d \n", xPortGetCoreID());
-while (true){
-Serial.println(a);
-digitalWrite(ledVerde, !digitalRead(ledVerde));
-delay(1000);
-}
+    Serial.printf("\nloop2() em core: %d \n", xPortGetCoreID());
+    while (true){
+        Serial.println(a);
+        digitalWrite(ledVerde, !digitalRead(ledVerde));
+        delay(1000);
+    }
 }
 
 void setup(){
-Serial.begin(115200);
-pinMode(ledVermelho, OUTPUT);
-pinMode(ledVerde, OUTPUT);
-Serial.printf("\nsetup() em core: %d", xPortGetCoreID());
-xTaskCreatePinnedToCore(loop2, "loop2", 8192, NULL, 1
-, NULL, 0);
-delay(1);
+    Serial.begin(115200);
+    pinMode(ledVermelho, OUTPUT);
+    pinMode(ledVerde, OUTPUT);
+    Serial.printf("\nsetup() em core: %d", xPortGetCoreID());
+    xTaskCreatePinnedToCore(loop2, "loop2", 8192, NULL, 1, NULL, 0);
+    delay(1000);
 }
 
 void loop(){
-digitalWrite(ledVermelho, !digitalRead(ledVermelho));
-delay(1000);
-a++;
-for i in range
-if
+    digitalWrite(ledVermelho, !digitalRead(ledVermelho));
+    delay(1000);
+    a++;
 }
 \end{lstlisting}
 
