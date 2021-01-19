@@ -1,2 +1,2 @@
-# templateLatex
-Template de LaTeX para trabalhos da UFJF
+# Template Latex Overleaf
+> Template de LaTeX do Overlaf para trabalhos da UFJF
